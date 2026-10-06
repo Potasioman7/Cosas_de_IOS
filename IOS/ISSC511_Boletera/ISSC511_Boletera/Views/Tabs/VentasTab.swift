@@ -51,6 +51,8 @@ struct VentasTab: View {
         }.ignoresSafeArea()
     }
     
+    
+    
     func guardarVenta(){
         //Generar un objetoa almacenar
         let nuevaVenta = Venta(

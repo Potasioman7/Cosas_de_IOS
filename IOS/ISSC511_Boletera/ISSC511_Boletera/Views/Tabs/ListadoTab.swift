@@ -42,11 +42,23 @@ struct ListadoTab: View {
                                 .foregroundColor(.gray)
                             
                         }
-                    }
+                    }.onDelete(perform: eliminarVenta)
                 }
                 
             }
         }.ignoresSafeArea()
+    }
+    
+    private func eliminarVenta(at offsets: IndexSet){
+        for index in offsets{
+            let venta = Ventas[index]
+            context.delete(venta)
+        }
+        do{
+            try context.save
+        }catch{
+            print("Error al elimnar")
+        }
     }
 }
 

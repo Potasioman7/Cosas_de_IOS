@@ -13,6 +13,6 @@ struct ISSC511_BoleteraApp: App {
     var body: some Scene {
         WindowGroup {
             LoginView()
-        }.modelContainer(for: Venta.self)
+        }.modelContainer(for: [Venta.self, Usuario.self])
     }
 }

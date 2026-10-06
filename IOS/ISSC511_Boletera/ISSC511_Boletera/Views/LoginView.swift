@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct LoginView: View {
     //Declaración de variables de estado
@@ -14,6 +15,9 @@ struct LoginView: View {
     @State private var loginValido = false
     @State private var error = false
     @State private var mostrarRegistro = false
+    
+    //Consulta a la DB que tiene todos los usuarios
+    @Query private var usuarios: [Usuario]
     
     var body: some View {
         if(loginValido){
@@ -73,7 +77,13 @@ struct LoginView: View {
         }
     }
     func validarLogin(){
-        if(usuario == "admin" && contraseña == "1234"){
+        error = false
+        
+        if let usuarioEncontrado = usuarios.first(where: {
+            $0.UsuarioCuenta == usuario &&
+            $0.ContraseñaCuenta == contraseña
+            
+        }){
             loginValido = true
         }else{
             error = true
