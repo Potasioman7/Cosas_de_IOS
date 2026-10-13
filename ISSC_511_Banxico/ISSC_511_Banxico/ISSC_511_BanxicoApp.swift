@@ -13,8 +13,8 @@ struct ISSC_511_BanxicoApp: App {
 
     var body: some Scene {
         WindowGroup {
-            
-        }
+            HomeView()
+        }.modelContainer(for: [HistorialDolar.self])
         //.modelContainer(sharedModelContainer)
     }
 }

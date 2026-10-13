@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct DollarView: View {
+    @State private var precio = 0
+    @State private var fecha = ""
     @StateObject private var vm = DollarViewModel()
     var body: some View {
         VStack(spacing: 30){
@@ -28,6 +30,18 @@ struct DollarView: View {
         }
     }
 }
+
+//func guardarListado(){
+    //Generar un objeto a almacenar
+    //let nuevoListado = HistorialDolar(
+      //  precio: precio,
+        //fecha: fecha
+    //)
+    
+    //context.insert(nuevaVenta)
+    //nombre = ""
+    //cantidad = 1
+//}
 
 #Preview {
     DollarView()
